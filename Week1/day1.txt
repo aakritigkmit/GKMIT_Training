@@ -1,0 +1,126 @@
+Node.js Internship Training: System Setup
+1. Shell (Bash / Zsh)
+
+    What it is: The shell is a command-line interface that allows you to interact with your operating system.
+    Why it's important: Many development tasks like running scripts, version control, and managing packages happen in the terminal.
+    How to set it up:
+        Mac users: By default, the shell is bash. We will install zsh for a more modern experience.
+        Zsh is highly customizable with plugins like Oh My Zsh.
+        Installation: brew install zsh and then sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)".
+    Benefits: Autocompletion, better history management, themes, and plugins for efficiency.
+
+2. Zsh (Oh My Zsh)
+
+    What it is: A powerful shell with more features compared to Bash, and Oh My Zsh is a framework to manage its configuration.
+    Why it's important: Zsh enhances developer productivity with autocompletion, shortcuts, and Git integration.
+    How to configure: Set up themes like agnoster or powerlevel10k for a visually appealing and informative terminal.
+
+3. Node Version Manager (NVM)
+
+    What it is: A version manager for Node.js that allows you to easily install and switch between different versions of Node.js.
+    Why it's important: Projects often require different Node.js versions, and NVM simplifies managing these versions.
+    Installation and setup:
+
+    bash
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    Usage:
+        Install Node: nvm install <version>
+        Switch between versions: nvm use <version>.
+
+4. Visual Studio Code (VSCode)
+
+    What it is: A lightweight code editor with great support for Node.js development.
+    Why it's important: VSCode is highly customizable with extensions and is one of the most popular IDEs among developers.
+    Plugins to install:
+        ESLint: For linting and code style enforcement.
+        Prettier: For code formatting.
+        GitLens: For Git history and code annotations.
+        Debugger for Node.js: To help with debugging Node.js applications.
+        Live Share: For collaborative coding.
+    Tips: Walk interns through setting up their workspace, configuring settings (e.g., auto-save, format on save).
+
+5. Docker
+
+    What it is: A platform for developing, shipping, and running applications inside lightweight containers.
+    Why it's important: Docker ensures that your application runs the same way in every environment, reducing "works on my machine" issues.
+    How to install:
+        Download and install Docker Desktop from docker.com.
+        Verify the installation: docker --version.
+    Basic commands:
+        docker pull <image>: To download a Docker image.
+        docker run <image>: To run a Docker container.
+        docker ps: To list running containers.
+
+6. Homebrew (brew)
+
+    What it is: A package manager for macOS/Linux that simplifies software installation.
+    Why it's important: Many tools, like zsh and node, can be installed easily using Homebrew.
+    How to install:
+
+    bash
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    Example: brew install git to install Git.
+    Commands:-
+    1. /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    2. brew  {to check whether the Brew has been installed or not} 
+7. SSH Configuration
+
+    What it is: SSH (Secure Shell) allows you to securely connect to remote machines.
+    Why it's important: SSH is used for interacting with Git repositories (GitHub, GitLab) and remote servers.
+    How to configure:
+        Generate SSH keys: ssh-keygen -t rsa -b 4096 -C "your_email@example.com".
+        Add your SSH key to SSH agent: eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa.
+        Add the public key to GitHub/GitLab.
+    Usage: Demonstrate how to clone a GitHub repo via SSH: git clone git@github.com:user/repo.git.
+
+    https://blog.gitguardian.com/8-easy-steps-to-set-up-multiple-git-accounts/
+
+    Commands:- 
+        # Go to Github docs and see the url Put it in the Terminal
+        1. ssh-keygen -t ed25519 -C "your_email@example.com"
+        2. $ pbcopy < ~/.ssh/id_ed25519.pub
+    
+    then add SSH key  to Github 
+
+
+8. Direnv
+
+    What it is: A tool to automatically load and unload environment variables based on the directory you're in.
+    Why it's important: Helps manage project-specific environment variables without polluting your global environment.
+    How to set up:
+        Install: brew install direnv.
+        Add it to shell config (~/.zshrc or ~/.bashrc): eval "$(direnv hook zsh)".
+    Usage:
+        Create .envrc file in the project directory with necessary environment variables.
+        Run direnv allow to load the environment variables.
+
+9. iTerm2
+
+    What it is: A terminal emulator for macOS with advanced features compared to the default Terminal app.
+    Why it's important: iTerm2 provides better customizability, split panes, session management, and more.
+    How to install: Download from iTerm2.
+    Steps:-
+        1. /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        2. brew install iterm2
+        3. sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        
+
+
+10. GitHub Account
+
+    What it is: A cloud-based service for hosting Git repositories.
+    Why it's important: GitHub is widely used for version control and collaboration on projects.
+    How to set up:
+        Create an account on GitHub.
+        Configure Git with your credentials: git config --global user.name "Your Name" and git config --global user.email "your_email@example.com".
+    Usage: Basic Git commands (e.g., git clone, git commit, git push, git pull).
+
+
+
+
+
+
