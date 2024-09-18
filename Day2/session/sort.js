@@ -11,29 +11,29 @@ fruits.sort();
 
 console.log(fruits)
 
-const details = [
+const array = [
 	{
-		name: "Aditya",
+		name: "Aakriti",
 		address: "jaipur",
-		mobile: 9876543223,
-        age: 21,
+		mobile: 901554378,
+        
 	},
 	{
-		name: "Aman",
+		name: "Aakriti",
 		address: 'Udaipur',
-		mobile: 9876543224,
-        age: 22,
+		mobile: 9378904,
+        
 	},
 	{
-		name: "Ajay",
+		name: "Aakriti",
 		address: "Ajmer",
-		mobile: 9876543221,
-        age: 23,
+		mobile: 875634678,
+       
 	}
 ]
 
-// details.sort((a,b)=> a.age - b.age);
+// array.sort((a,b)=> a.age - b.age);
 
-details.sort((a,b)=> a.name.localeCompare(b.name));
+array.sort((a,b)=> a.name.localeCompare(b.name));
 
-console.log(details);
+console.log(array);
