@@ -1,0 +1,18 @@
+Concept of what is basic use of git and github.
+Naming convention of commit messages and branching convention too.
+Practice session of live performing of merging and commit from scratch.
+Session on explaining merge conflict and how to resolve conflicts.
+Discussion on git command.
+
+Task to be done:
+1.Given by Raghav - 
+->To clone the repo share by raghav.
+-> edit the file which is inside repo  by all the task that had been done in whole day in the starting of that file.
+-> commit that changes and create pull request to merge that commit in that repo. 
+
+2.Given by Dhruvil -
+-> create folder having one text file and .gitignore file 
+-> push that folder on the github
+-> after that put that text file in the .gitignore file.
+-> push again after commiting the changes
+-> task is to do that you have to check that file is deleted from github or not, if not then search what to do to delete the file after gitignore.

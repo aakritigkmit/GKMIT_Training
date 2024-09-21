@@ -1,0 +1,196 @@
+// users
+ 1. Get All user
+
+url - https://localhost:5000/users
+method - GET
+query- {
+  "name": value
+}
+response - {
+  array of users
+}
+status - 200
+
+
+// users
+ 1. Create User
+
+url - https://localhost:5000/users
+method - POST
+body- {
+  "name": value
+  "age" :value
+}
+response - {
+
+   "name": value
+  "age" :value
+}
+status - 201
+
+
+ 2. Get single user
+
+ url - https://localhost:5000/users/:id
+method - GET
+response - {
+  "name": value
+}
+response - {
+  id
+}
+status - 200
+
+ 
+3. Updating whole Object 
+
+url - https://localhost:5000/users/:id
+method - PUT
+body - {
+  "name": value
+  "age":value
+}
+
+response - {
+  id:"hjkshkdsjflkjsdl"
+  "name":value
+  "age":value
+}
+status - 200
+
+
+
+
+ 
+4. Updating a single Object 
+
+url - https://localhost:5000/users/:id
+method - PATCH
+body - {
+  "age":value
+}
+response - {
+  id:"hjkshkdsjflkjsdl"
+  "name":value
+  "age":value
+}
+status - 200
+
+
+ 
+5. Deleting User
+
+url - https://localhost:5000/users/:id
+method - DELETE
+
+response - {
+  "success":true
+}
+status - 200
+
+
+
+
+///////////////User Post
+
+
+// users
+ 1. Get All post of single user
+
+url - https://localhost:5000/users/:id/posts
+method - GET
+query- {
+  field: value
+}
+response - {
+  users[]
+}
+status - 200
+
+
+// users
+ 1. Create Post
+
+url - https://localhost:5000/users/posts
+method - POST
+headers-id
+body- {
+  "name": value
+  "Caption" :value
+}
+response - {
+
+   "name": value
+ "Caption" :value
+}
+status - 201
+
+
+ 2. Get a post of single user
+
+ url - https://localhost:5000/users/:id/post
+method - GET
+
+response - {
+   "name": value
+  "Caption" :value
+}
+response - {
+	"id":value
+   "name": value
+  "Caption" :value
+}
+status - 200
+
+
+ 
+3. Updating a single post
+
+url - https://localhost:5000/post/:id
+method - PATCH
+body - {
+  "name": value
+  "age":value
+}
+response - {
+  id:"hjkshkdsjflkjsdl"
+  "name":value
+  "age":value
+}
+status - 200
+
+
+ 
+5. Deleting post
+
+url - https://localhost:5000/post/:id
+method - DELETE
+
+response - {
+  "success":true
+}
+status - 200
+
+
+
+6. Filter out all posts on the basis od date and time 
+
+url - https://localhost:5000/post/:id?startdate=""&enddate=""
+method - GET
+query - {
+  "name": value
+  "age":value
+}
+response - {
+  id:"hjkshkdsjflkjsdl"
+  "name":value
+  "age":value
+}
+status - 200
+
+
+
+
+
+
+

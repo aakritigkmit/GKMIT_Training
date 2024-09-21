@@ -120,7 +120,20 @@ Node.js Internship Training: System Setup
     Usage: Basic Git commands (e.g., git clone, git commit, git push, git pull).
 
 
+11.  To Change the username of GIT 
 
 
+apple for apple while committing
+Command1:-
+ git config --global user.email "aakriti@gkmit.co"
+it config --list
+ git status
+cd ~/.ssh
+ls
+pbcopy < ~/.ssh/id_ed25519.pub (our old id)
+m -rf id_ed25519 id_ed25519.pub
 
+Create new SSH 
+ssh-keygen -t ed25519 -C "aakriti@gkmit.co"
+pbcopy < ~/.ssh/id_ed25519.pub
 

@@ -36,4 +36,4 @@ const array = [
 
 array.sort((a,b)=> a.name.localeCompare(b.name));
 
-console.log(array);
+console.log(array)

@@ -1,0 +1,20 @@
+
+1. Program to print even number from an array.
+
+2 . Session on map, forEach and filter.
+3 . Session on let, const and var.
+4. Program to print array of name and address from an array of objects.
+5. Session on Using string interpolation in JS.
+6. Session on difference between map and forEach function and its use cases.
+7. Program to print array of name and address as well as string of name and address from an array of objects.
+8. Program to print name of the user having even phone number from an array of objects.
+9. Session on difference between filter and find.
+
+
+Tasks:
+1. Revision JS from w3schools.
+2. reduce Function.
+3. Sort: Number -> ascending to descending and vice versa
+	 Alphabet -> A-Z and Z-A
+	Objects -> both numbers and alphabets.
+4. Basics of TS.
