@@ -1,18 +1,25 @@
-Concept of what is basic use of git and github.
-Naming convention of commit messages and branching convention too.
-Practice session of live performing of merging and commit from scratch.
-Session on explaining merge conflict and how to resolve conflicts.
-Discussion on git command.
+1. To delete a file:-
+Command:- rm-rf - <filename>
 
-Task to be done:
-1.Given by Raghav - 
-->To clone the repo share by raghav.
--> edit the file which is inside repo  by all the task that had been done in whole day in the starting of that file.
--> commit that changes and create pull request to merge that commit in that repo. 
+2. To delete a Commit:-
+Command:-  1. git log (for checking all the commits & fetch commit ID)
+		   2. git reset "id"
 
-2.Given by Dhruvil -
--> create folder having one text file and .gitignore file 
--> push that folder on the github
--> after that put that text file in the .gitignore file.
--> push again after commiting the changes
--> task is to do that you have to check that file is deleted from github or not, if not then search what to do to delete the file after gitignore.
+3. To create a file:-
+Command:- touch filename
+
+4. To insert something in file:-
+Command:- 1. vim <filename> (will open that file)
+		  2. To Add something Press ( i ) and Insert some text
+
+5. To change branch name:-
+Command:- git branch -m new-branch-name (but You have to be in the branch which u have to rename)
+
+5. Writing a code for future references you dont want code to be written on your current working directory then the git will store it somewhere and we can fetch it for future references (the commited changes):- 
+Command:- 	 git stash
+
+
+
+
+
+		

@@ -111,12 +111,12 @@ status - 200
 // users
  1. Create Post
 
-url - https://localhost:5000/users/posts
+url - https://localhost:5000/users/:id/posts
 method - POST
-headers-id
+
 body- {
   "name": value
-  "Caption" :value
+  "Caption" :value 
 }
 response - {
 
@@ -128,7 +128,7 @@ status - 201
 
  2. Get a post of single user
 
- url - https://localhost:5000/users/:id/post
+ url - https://localhost:5000/users/:id/posts
 method - GET
 
 response - {
@@ -146,7 +146,7 @@ status - 200
  
 3. Updating a single post
 
-url - https://localhost:5000/post/:id
+url - https://localhost:5000/posts/:id
 method - PATCH
 body - {
   "name": value
@@ -163,7 +163,7 @@ status - 200
  
 5. Deleting post
 
-url - https://localhost:5000/post/:id
+url - https://localhost:5000/posts/:id
 method - DELETE
 
 response - {
@@ -175,7 +175,7 @@ status - 200
 
 6. Filter out all posts on the basis od date and time 
 
-url - https://localhost:5000/post/:id?startdate=""&enddate=""
+url - https://localhost:5000/posts/:id?startdate=""&enddate=""
 method - GET
 query - {
   "name": value
@@ -191,6 +191,17 @@ status - 200
 
 
 
+pm.test("Status Code is 200",function(){
+    pm.response.to.have.status(200)
+});
+// console.log("New value Created")
+// pm.collectionVariables.set("name","NewVar");
+// pm.environment.set("name","NewEnv2")
+
+// pm.variables.set("name","POSTMAN")
+// // console.log(pm.variables.get("name"))
+// console.log(pm.environment.get("name"))
+// // console.log(pm.collectionVariables.get("name"));
 
 
 
