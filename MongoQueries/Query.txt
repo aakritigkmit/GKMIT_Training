@@ -1,0 +1,420 @@
+
+Created a New Collection Posts and Add these objects
+
+db.Posts.find()
+[
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    title: 'Post Title 2',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'news', 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'news', 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 4,
+    tags: [ 'news', 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+]
+
+
+///////////////////////////////////////--------------------------/////////////////////////////////////////
+
+            Remove a value through PULL
+Query Write :=
+    db.Posts.updateMany( { },{ $pull: { tags: { $in: [ "news" ] }}})
+
+
+CHANGES IN  data:-
+[
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    title: 'Post Title 2',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 4,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+]
+
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+                                        SET
+
+db.Posts.updateOne({title: "Post Title 4"} ,{$set:{likes:6}})
+
+Changes:- in ObjectId
+
+{
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 6,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+                                // likes Incrementing in an array
+
+
+  Query:-   db.Posts.updateMany({},{$inc:{likes:1}})
+
+
+  Changes in Objects:-
+
+  [
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    title: 'Post Title 2',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 4,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 7,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+]
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+                                        //// decrementing an array
+
+Query:-db.Posts.updateMany({},{$inc:{likes:-1}})
+
+Changes in data:-
+
+[
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    title: 'Post Title 2',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 6,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+]
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+            //////          Upsert 
+
+
+query :-
+        db.Posts.updateOne({title:'Post Title 5'},{$set:{title: "Post Title 5",
+...         body: "Body of post.",
+...         category: "Event",
+...         likes: 5,
+...         tags: ["news", "events"],
+...         date: Date()
+... }},
+... {upsert:true}
+... )
+
+CHanges in Data:-
+
+[
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    title: 'Post Title 2',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 6,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+  {
+    _id: ObjectId('66fa8624279173c267fdf3c5'),
+    title: 'Post Title 5',
+    body: 'Body of post.',
+    category: 'Event',
+    date: 'Mon Sep 30 2024 11:06:12 GMT+0000 (Coordinated Universal Time)',
+    likes: 5,
+    tags: [ 'news', 'events' ]
+  }
+]
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+////        upsert false
+
+Query:-
+
+db.Posts.updateOne({ title: 'Post Title 5' }, 
+{ $set: { title: "Post Title 5", body: "Body of post.", category: "Event", likes: 5, tags: ["news", "events"], date: Date() } }, 
+{ upsert: false } )
+ //No Changes
+
+///            Rename
+ Queryy:- db.Posts.updateOne({title:'Post Title 2'},{$rename:{"title":"Description"}})
+
+
+ Changess:-
+
+ {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)',
+    Description: 'Post Title 2'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+/////////    Push
+
+query:-  db.Posts.updateMany({},{$push:{tags:"trending"}})
+
+Changes in db
+[
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964035'),
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 2,
+    tags: [ 'events', 'trending' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)',
+    Description: 'Post Title 2'
+  },
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events', 'trending' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+]
+
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+
+////////////////////////       POP
+
+Query:-  db.Posts.updateOne({title: 'Post Title 3'},{$pop:{tags:1}})
+
+
+Changes in data 
+
+ {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'events' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+
+
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+
+  ///////////////               Add to set
+
+  Query:- db.Posts.updateOne({title: 'Post Title 3'},{$addToSet:{tags:"funny"}})
+          db.posts.updateOne({key:"value"},{$function{key:"value"}})
+  Changes in data
+   {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'funny' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  }
+
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+
+
+
+  Query:-  db.Posts.updateOne({title: 'Post Title 3'},{$addToSet:{tags:{$each :["funny","trending"]}}})
+
+
+ Changes in data:-
+    {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'funny', 'trending' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+        /////////       PUSH    ////////
+
+  Query:-
+       db.Posts.updateOne({ title: 'Post Title 4'},{$push :{tags:{$each:['happy','unhappy','victory']}}})
+ Changes in data:-
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964036'),
+    title: 'Post Title 3',
+    body: 'Body of post.',
+    category: 'Technology',
+    likes: 3,
+    tags: [ 'funny', 'trending', 'fun', 'Comedy' ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+                        //////Push With Sorting
+
+  Query:-
+    db.Posts.updateOne({ title: 'Post Title 4'},{$push :{tags:{$each:['news','dailynews'],$sort:1 }}})
+
+ Changes in data:-
+  {
+    _id: ObjectId('66fa7b17c5396a93f3964037'),
+    title: 'Post Title 4',
+    body: 'Body of post.',
+    category: 'Event',
+    likes: 6,
+    tags: [
+      'dailynews',
+      'events',
+      'happy',
+      'news',
+      'trending',
+      'unhappy',
+      'victory'
+    ],
+    date: 'Mon Sep 30 2024 10:19:03 GMT+0000 (Coordinated Universal Time)'
+  },
+
+///////////////////////////////////////-------------------------/////////////////////////////////////////
+
+                            ////And or OR   (Operator)
+
+  Query:-
+        db.Posts.find({ $and: [ { $or: [ { 'title': 'Post Title 5' }, { 'category': 'Event' }] }, { 'likes': 5 }] })
+
+  Changes in data:-
+
+  [
+  {
+    _id: ObjectId('66fa8624279173c267fdf3c5'),
+    title: 'Post Title 5',
+    body: 'Body of post.',
+    category: 'Event',
+    date: 'Mon Sep 30 2024 11:06:29 GMT+0000 (Coordinated Universal Time)',
+    likes: 5,
+    tags: [ 'events', 'trending' ]
+  }
+]
