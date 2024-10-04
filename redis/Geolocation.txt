@@ -1,0 +1,35 @@
+
+TASK 2 : Geo Location
+
+
+1. Add geolocations
+
+
+GEOADD locations 13.361389 38.115556 "China"
+GEOADD locations 15.087269 37.502669 "Itlay"
+GEOADD locations 12.496366 41.902783 "Rome"
+GEOADD locations 14.268124 40.83549 "Naples"
+
+2. For hashing  the location
+
+GEOHASH 'Rome'
+"tdr1x239jn0"
+
+3. Get position of Rome
+
+GEOPOS locations "Rome"
+
+4. Calculate distance between Palermo and Catania
+
+GEODIST locations "China" "Itlay" km
+
+5. Find all locations within 250 km of Rome
+GEORADIUS locations 12.496366 41.902783 250 km
+
+geolocations:
+[
+	1. "location:add":"{"latitude":"13.361389", "longitude":"38.115556", "name":"China"}"
+	2. "location:<location_id>:position":"{"latitude":"12.496366", "longitude":"41.902783"}"
+	3. "location:<location1_id>:<location2_id>:distance":"166km"
+	4. "location:<location_id>:allLocations":"["Naples"]"
+]

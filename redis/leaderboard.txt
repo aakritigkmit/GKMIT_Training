@@ -1,0 +1,54 @@
+
+
+Leaderboard
+1. To add data in Leaderboard
+
+
+
+Player1 : ZADD leaderboard 200 Frost
+Player 2 : ZADD leaderboard 100 Jb
+Player 3: ZADD leaderboard 300 Sanya
+Player 4 :  ZADD leaderboard 500 Alaya
+
+
+
+	To Display Leaderboard
+
+2. ZREVRANGE leaderboard 0 -1 WITHSCORES
+
+	To Increment Score
+
+3. ZINCRBY leaderboard 600 "Frost"
+
+ To return the rank of particular player
+
+4.  ZREVRANK leaderboard "Jb"
+
+ To remove Player from Leaderboard
+
+5. ZREM leaderboard "Jb"
+
+   To show the score of player
+
+6. ZSCORE leaderboard "Sanya"
+
+	To show top 3 players of leaderboard
+
+7. ZREVRANGE leaderboard 0 2 WITHSCORES
+
+	To show the count of the min andmax range
+
+8. ZCOUNT score 250 600
+
+
+leaderboard:
+[
+	1. "leaderboard:player:add":"{"score":"200", "name":"Frost"}"
+	2. "leaderboard:display":"[{"score":"200", "name":"Frost"}, {"score":"100", "name":"Jb"}, {"score":"300", "name":"Sanya"}, {"score":"500", "name":"Alaya"}]"
+	3. "leaderboard:<player_id>:score:incriment":"{"score":"800", "name":"Frost"}"
+	4. "leaderboard:<player_id>:rank":"3"
+	5. "leaderboard:<player_id>:remove":"{"name":"Jb", "score":"100"}"
+	6. "leaderboard:<player_id>:show:score":"300"
+	7. "leaderboard:show:players:limit":"[{"score":"500", "name":"Alaya"}, {"score":"300", "name":"Sanya"},{"score":"200", "name":"Frost"}]"
+	8. "leaderboard:players:count:range":"[{"score":"500", "name":"Alaya"}, {"score":"300", "name":"Sanya"}]"
+]
